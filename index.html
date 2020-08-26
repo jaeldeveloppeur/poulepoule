@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POULE POULE</title>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/> -->
+</head>
+<body>
+    <div class="home">
+        <img src="./images/poule.png" class="imgPoule">
+        <label for="time">Vitesse de déroulement des cartes : </label>
+        <input id="time" type="number" placeholder="entre 50 et 2000 ms">
+        <button type="button" class="btn btn-outline-danger btn-lg" id="btnStart" onclick="effacerHome()">START</button>
+    </div>
+    <div class="game">
+        <button type="button" id="btnGo" class="btn btn-info btn-lg" onclick="go()">Je suis prêt</button>
+        <button type="button" class="btn btn-danger btn-lg" id="btnStop" onclick="stop()" >STOP</button>
+        <button type="button" class="btn btn-success btn-lg" id="btnRetry" onclick="retry()" >RECOMMENCER</button>
+        <div class="tableGame">
+        </div>
+        <button type="button" class="btn btn-secondary btn-lg" onclick="returnHome()">Je veux changer la vitesse</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
