@@ -9,9 +9,12 @@ body{
     justify-content: center;
     align-items: center;
 }
+.home label{
+    text-align: center;
+}
 .imgPoule{
-    height: 500px;
-    width: 400px;
+    height: 35%;
+    width: 35%;
     margin-bottom: 30px;
 }
 .home label{
