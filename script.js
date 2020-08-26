@@ -76,7 +76,7 @@ function stop(){
 
 function afficherScore(){
     const infoScore = document.createElement('h1');
-    infoScore.textContent = `Le nombre d'oeuf disponible est de ${score}`;
+    infoScore.textContent = `Le nombre d'oeufs disponible est de ${score}`;
     infoScore.style.marginLeft = '-30%';
     document.querySelector(".tableGame").appendChild(infoScore);
 }
