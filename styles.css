@@ -9,18 +9,14 @@ body{
     justify-content: center;
     align-items: center;
 }
-.home label{
+.home input{
     text-align: center;
-}
-.imgPoule{
-    height: 35%;
-    width: 35%;
-    margin-bottom: 30px;
 }
 .home label{
     margin-bottom: 10px;
     font-size: 20px;
     text-transform: uppercase;
+    text-align: center;
 }
 #btnStart{
     margin-top: 30px;
@@ -52,6 +48,9 @@ body{
     border: 1px solid black;
     overflow: hidden;
 }
+.tableGame img{
+    border-radius: 10px;
+}
 
 .carte_out{
     animation: transition-out cubic-bezier(0,.86,1,-0.02) 800ms;
@@ -63,5 +62,17 @@ body{
     }
     100%{
         margin-bottom: -130%;
+    }
+}
+
+@media all and (max-width:900px){
+    .tableGame img{
+        width: 80%;
+        height: 90%;
+    }
+    .imgPoule{
+        height: 300px;
+        width: 200px;
+        margin-bottom: 30px;
     }
 }

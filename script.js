@@ -47,16 +47,16 @@ function choixCarte(){
     calculScore();
     if(lotCarte.length === 0){
         clearInterval(interval);
-        setTimeout(endCarte,1000);
+        setTimeout(endCarte,800);
         document.getElementById('btnStop').style.display = 'none';
         document.getElementById('btnRetry').style.display = 'block';
     }
 }
 
 function endCarte(){
+    document.querySelector('.tableGame').innerHTML='';
     const textEnd = document.createElement('h1');
     textEnd.textContent = "Il n'y a plus de carte disponible :)";
-    textEnd.style.marginLeft = '-30%';
     document.querySelector(".tableGame").appendChild(textEnd);
 }
 
@@ -67,17 +67,18 @@ function afficheBtnStop(){
 
 function stop(){
     clearInterval(interval);
+    document.querySelector('.tableGame').innerHTML='';
     document.getElementById('btnStop').style.display = 'none';
     document.getElementById('btnRetry').style.display = 'block';
     if(lotCarte.length>0){
-        setTimeout(afficherScore,1000);
+        setTimeout(afficherScore,800);
     }
 }
 
 function afficherScore(){
     const infoScore = document.createElement('h1');
     infoScore.textContent = `Le nombre d'oeufs disponible est de ${score}`;
-    infoScore.style.marginLeft = '-30%';
+    infoScore.style.textAlign = 'center';
     document.querySelector(".tableGame").appendChild(infoScore);
 }
 
