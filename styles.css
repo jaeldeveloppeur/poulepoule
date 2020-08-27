@@ -52,6 +52,28 @@ body{
     color: #E2A488;
     margin-bottom: 10%;
 }
+.omelette{
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/omelette.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80% 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#textGameOver{
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+#score{
+    font-size: 70px;
+    color: #BC3132;
+}
 /* GAME */
 .game{
     display: none;

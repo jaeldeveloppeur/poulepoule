@@ -14,6 +14,10 @@ let messageWinner = `
         <p>BRAVO</p>
     </div>
 `;
+let messageEndCarte = `
+    <div class="omelette">
+    </div>
+`;
 
 function effacerHome(){
     home.style.display = 'none';
@@ -63,7 +67,6 @@ function choixCarte(){
     document.getElementById("carte").src = `./images/${lotCarte[nombreAleatoire]}.png`;
     listeCartePose.push(lotCarte[nombreAleatoire]);
     lotCarte.splice(nombreAleatoire, 1);
-    // calculScore();
     if(lotCarte.length === 0){
         clearInterval(interval);
         setTimeout(endCarte,800);
@@ -74,10 +77,7 @@ function choixCarte(){
 
 function endCarte(){
     document.querySelector('.tableGame').innerHTML='';
-    const textEnd = document.createElement('h1');
-    textEnd.textContent = "Il n'y a plus de carte disponible :)";
-    textEnd.style.textAlign = 'center';
-    document.querySelector(".tableGame").appendChild(textEnd);
+    document.querySelector('.tableGame').innerHTML = messageEndCarte;
 }
 
 function afficheBtnStop(){
@@ -92,16 +92,17 @@ function stop(){
     document.getElementById('btnStop').style.display = 'none';
     document.getElementById('btnRetry').style.display = 'block';
     if(lotCarte.length>0){
-        setTimeout(afficherScore,700);
+        setTimeout(afficherScore,500);
     }
 }
 
 function afficherScore(){
     if(score != 5){
-        const infoScore = document.createElement('h1');
-        infoScore.textContent = `Le nombre d'oeufs disponible est de ${score}`;
-        infoScore.style.textAlign = 'center';
-        document.querySelector(".tableGame").appendChild(infoScore);
+        document.querySelector(".tableGame").innerHTML = `
+            <div class="omelette">
+                <p id="textGameOver">Dommage :( <br><span id="score">${score}</span> <br>Oeufs Dispo</p>
+            </div>
+        `;
     }
     else{
         document.querySelector('.tableGame').innerHTML = messageWinner;
@@ -142,5 +143,4 @@ function calculScore(){
             score++
         }
     }
-    console.log(listeCartePose);
 }
