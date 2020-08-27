@@ -27,6 +27,7 @@ body{
 }
 #btnStart{
     margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 #btnStop{
@@ -123,5 +124,8 @@ body{
     }
     .winner p{
         margin-bottom: 40%;
+    }
+    .home{
+        border: 7px solid #BA373D;
     }
 }
