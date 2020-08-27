@@ -71,6 +71,7 @@ function endCarte(){
     document.querySelector('.tableGame').innerHTML='';
     const textEnd = document.createElement('h1');
     textEnd.textContent = "Il n'y a plus de carte disponible :)";
+    textEnd.style.textAlign = 'center';
     document.querySelector(".tableGame").appendChild(textEnd);
 }
 
