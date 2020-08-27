@@ -100,8 +100,8 @@ function afficherScore(){
 function retry(){
     lotCarte = [0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2];
     listeCartePose = [];
-    let oeufCouve = [];
-    let oeufDispo = []; 
+    oeufCouve = [];
+    oeufDispo = []; 
     score = 0;
     document.getElementById('btnRetry').style.display = 'none';
     document.getElementById('btnGo').style.display = 'block';
@@ -111,9 +111,12 @@ function retry(){
 function calculScore(){
     for(let i = 0 ; i < listeCartePose.length; i++){
         if(listeCartePose[i] === 0){
-            if(oeufDispo.length > 0){
+            if(oeufDispo.length > 0 && score > 0){
                 oeufCouve.push('X');
                 score--;
+            }
+            else if(oeufDispo.length > 0){
+                oeufCouve.push('X');
             }
         }
         else if(listeCartePose[i] === 1){
