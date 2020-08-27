@@ -11,8 +11,13 @@
 <body>
     <div class="home">
         <img src="./images/poule.png" class="imgPoule">
-        <label for="time">Vitesse de déroulement <br>des cartes : </label>
-        <input id="time" type="number" placeholder="entre 400 et 2000 ms">
+        <label for="time">Choix du niveau de jeu : </label>
+        <!-- <input id="time" type="number" placeholder="entre 400 et 2000 ms"> -->
+        <select id="level" class="custom-select" size="1">
+            <option value="level1">Niveau 1 (Facile)</option>
+            <option value="level2">Niveau 2 (Moyen)</option>
+            <option value="level3">Niveau 3 (Difficile)</option>
+        </select>
         <button type="button" class="btn btn-outline-danger btn-lg" id="btnStart" onclick="effacerHome()">START</button>
     </div>
     <div class="game">
@@ -21,7 +26,7 @@
         <button type="button" class="btn btn-success btn-lg" id="btnRetry" onclick="retry()" >RECOMMENCER</button>
         <div class="tableGame">
         </div>
-        <button type="button" class="btn btn-secondary btn-lg" onclick="returnHome()">Je veux changer la vitesse</button>
+        <button type="button" class="btn btn-secondary btn-lg" onclick="returnHome()">Je veux changer le niveau de difficulté</button>
     </div>
     <script src="script.js"></script>
 </body>

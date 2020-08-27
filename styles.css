@@ -18,6 +18,12 @@ body{
     text-transform: uppercase;
     text-align: center;
 }
+.home select{
+    width: 200px;
+}
+.imgPoule{
+    margin-bottom: 30px;
+}
 #btnStart{
     margin-top: 30px;
 }
@@ -73,6 +79,6 @@ body{
     .imgPoule{
         height: 300px;
         width: 200px;
-        margin-bottom: 30px;
+        
     }
 }

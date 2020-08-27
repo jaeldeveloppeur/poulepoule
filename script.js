@@ -4,8 +4,11 @@ let nombreAleatoire = 0;
 let interval;
 let compteur = 0;
 let lotCarte = [0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2];
-let listeCartePose = []; 
+let listeCartePose = [];
+let oeufCouve = [];
+let oeufDispo = []; 
 let score = 0;
+let speed;
 
 function effacerHome(){
     home.style.display = 'none';
@@ -13,8 +16,19 @@ function effacerHome(){
 }
 
 function returnHome(){
-    document.getElementById('time').value = null;
     location.reload();
+}
+
+function choiceSpeed(){
+    if(document.getElementById('level').value == 'level1'){
+        speed = 1300;
+    }
+    else if(document.getElementById('level').value == 'level2'){
+        speed = 1000;
+    }
+    else if(document.getElementById('level').value == 'level3'){
+        speed = 700
+    }
 }
 
 function genererNombreEntier(max){
@@ -34,8 +48,8 @@ function changeCarte(){
 }
 
 function go(){
-    // changeCarte();
-    interval = setInterval(changeCarte, document.getElementById('time').value);
+    choiceSpeed();
+    interval = setInterval(changeCarte, speed);
     afficheBtnStop();
 }
 
@@ -44,7 +58,7 @@ function choixCarte(){
     document.getElementById("carte").src = `./images/${lotCarte[nombreAleatoire]}.png`;
     listeCartePose.push(lotCarte[nombreAleatoire]);
     lotCarte.splice(nombreAleatoire, 1);
-    calculScore();
+    // calculScore();
     if(lotCarte.length === 0){
         clearInterval(interval);
         setTimeout(endCarte,800);
@@ -66,6 +80,7 @@ function afficheBtnStop(){
 }
 
 function stop(){
+    calculScore();
     clearInterval(interval);
     document.querySelector('.tableGame').innerHTML='';
     document.getElementById('btnStop').style.display = 'none';
@@ -85,6 +100,8 @@ function afficherScore(){
 function retry(){
     lotCarte = [0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2];
     listeCartePose = [];
+    let oeufCouve = [];
+    let oeufDispo = []; 
     score = 0;
     document.getElementById('btnRetry').style.display = 'none';
     document.getElementById('btnGo').style.display = 'block';
@@ -92,16 +109,23 @@ function retry(){
 }
 
 function calculScore(){
-    let pouletLength = listeCartePose.filter(function(value){return value === 0;}).length;
-    let renardLength = listeCartePose.filter(function(value){return value === 1;}).length;
-    let oeufLength = listeCartePose.filter(function(value){return value === 2;}).length;
-    if(lotCarte[nombreAleatoire] === 2){
-        score++
-    };
-    if(lotCarte[nombreAleatoire] === 0 && oeufLength > 0){
-        score--
+    for(let i = 0 ; i < listeCartePose.length; i++){
+        if(listeCartePose[i] === 0){
+            if(oeufDispo.length > 0){
+                oeufCouve.push('X');
+                score--;
+            }
+        }
+        else if(listeCartePose[i] === 1){
+            if(oeufCouve.length > 0){
+                oeufCouve.splice(0,1);
+                score++;
+            }
+        }
+        else if(listeCartePose[i] === 2){
+            oeufDispo.push('X');
+            score++
+        }
     }
-    if(lotCarte[nombreAleatoire] === 1 && pouletLength > 0 && oeufLength >= pouletLength){
-        score++
-    }
+    console.log(listeCartePose);
 }
