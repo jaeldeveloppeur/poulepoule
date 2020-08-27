@@ -12,7 +12,6 @@
     <div class="home">
         <img src="./images/poule.png" class="imgPoule">
         <label for="time">Choix du niveau de jeu : </label>
-        <!-- <input id="time" type="number" placeholder="entre 400 et 2000 ms"> -->
         <select id="level" class="custom-select" size="1">
             <option value="level1">Niveau 1 (Facile)</option>
             <option value="level2">Niveau 2 (Moyen)</option>
@@ -25,6 +24,9 @@
         <button type="button" class="btn btn-danger btn-lg" id="btnStop" onclick="stop()" >STOP</button>
         <button type="button" class="btn btn-success btn-lg" id="btnRetry" onclick="retry()" >RECOMMENCER</button>
         <div class="tableGame">
+            <!-- <div class="winner">
+                <p>BRAVO</p>
+            </div> -->
         </div>
         <button type="button" class="btn btn-secondary btn-lg" onclick="returnHome()">Changer le niveau de difficulté</button>
     </div>

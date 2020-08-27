@@ -9,6 +9,11 @@ let oeufCouve = [];
 let oeufDispo = []; 
 let score = 0;
 let speed;
+let messageWinner = `
+    <div class="winner">
+        <p>BRAVO</p>
+    </div>
+`;
 
 function effacerHome(){
     home.style.display = 'none';
@@ -87,15 +92,21 @@ function stop(){
     document.getElementById('btnStop').style.display = 'none';
     document.getElementById('btnRetry').style.display = 'block';
     if(lotCarte.length>0){
-        setTimeout(afficherScore,800);
+        setTimeout(afficherScore,700);
     }
 }
 
 function afficherScore(){
-    const infoScore = document.createElement('h1');
-    infoScore.textContent = `Le nombre d'oeufs disponible est de ${score}`;
-    infoScore.style.textAlign = 'center';
-    document.querySelector(".tableGame").appendChild(infoScore);
+    if(score != 5){
+        const infoScore = document.createElement('h1');
+        infoScore.textContent = `Le nombre d'oeufs disponible est de ${score}`;
+        infoScore.style.textAlign = 'center';
+        document.querySelector(".tableGame").appendChild(infoScore);
+    }
+    else{
+        document.querySelector('.tableGame').innerHTML = messageWinner;
+    }
+    
 }
 
 function retry(){
@@ -106,7 +117,7 @@ function retry(){
     score = 0;
     document.getElementById('btnRetry').style.display = 'none';
     document.getElementById('btnGo').style.display = 'block';
-    document.querySelector('.tableGame').innerHTML='';
+    document.querySelector('.tableGame').innerHTML = "";
 }
 
 function calculScore(){
